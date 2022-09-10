@@ -1,0 +1,77 @@
+<!DOCTYPE html>{{- '' -}}
+<html>{{- '' -}}
+
+<head>{{- '' -}}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">{{- '' -}}
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">{{- '' -}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">{{- '' -}}
+    <!--prelude css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">{{- '' -}}
+    <link rel="stylesheet" href="https://unpkg.com/prismjs@1.28.0/themes/prism.css" />{{- '' -}}
+    <!--prejude js-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>{{- '' -}}
+    <script defer src="https://unpkg.com/prismjs@1.28.0/components/prism-core.min.js"></script>{{- '' -}}
+    <script defer src="https://unpkg.com/prismjs@1.28.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>{{- '' -}}
+    <script defer src="https://unpkg.com/prismjs@1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>{{- '' -}}
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.0/typed.min.js"></script>{{- '' -}}
+    <!--set the title-->
+    <title>{{- '' -}}
+        {%- block head_title -%}
+        {{- site.title }} | {{ site.tagline -}}
+        {%- endblock -%}
+    </title>{{- '' -}}
+    <!--custom head-->
+    {{- theme_ctx.custom_head | safe -}}
+    <!--end custom head-->
+</head>{{- '' -}}
+
+<body>{{- '' -}}
+    {%- block header -%}
+    <!--begin navbar-->
+    <nav>{{- '' -}}
+        <div class="nav-wrapper">{{- '' -}}
+            {%- if theme_ctx.custom_avatar_url -%}
+            <a href="#!" class="brand-logo center">{{- '' -}}
+                <img src="{{ theme_ctx.custom_avatar_url | safe }}" class="circle responsive-img" height="64px"
+                    width="64px">
+            </a>{{- '' -}}
+            {%- endif -%}
+            {%- if theme_ctx.navigator_right -%}
+            <ul class="right hide-on-med-and-down">{{- '' -}}
+                {%- for i in theme_ctx.navigator_right -%}
+                <li>{{- '' -}}
+                    <a href="{{- i.url | safe -}}">{{- '' -}}
+                        {{- i.icon -}}
+                        {{- i.title -}}
+                    </a>{{- '' -}}
+                </li>{{- '' -}}
+                {%- endfor -%}
+            </ul>{{- '' -}}
+            {%- endif -%}
+            {%- if theme_ctx.navigator_left -%}
+            <ul class="left hide-on-med-and-down">{{- '' -}}
+                {%- for i in theme_ctx.navigator_left -%}
+                <li>{{- '' -}}
+                    <a href="{{- i.url | safe -}}">{{- '' -}}
+                        {{- i.icon -}}
+                        {{- i.title -}}
+                    </a>{{- '' -}}
+                </li>{{- '' -}}
+                {%- endfor -%}
+            </ul>{{- '' -}}
+            {%- endif -%}
+        </div>{{- '' -}}
+    </nav>{{- '' -}}
+    <!--end navbar-->
+    <h1 class="center-align">{{- '' -}}
+        {%- site.title -%}
+    </h1>{{- '' -}}
+    <h4 id="typejs" class="center-align"></h4>{{- '' -}}
+    <script>{{- '' -}}
+        var typed = new Typed('#typejs',  ({strings: ['{{- site.tagline -}}'],typeSpeed: 100,backSpeed: 1,loop: true}));{{- '' -}}
+    </script>{{- '' -}}
+    {-% endblock -%}
+    {%- block main_body -%}
+    {%- endblock -%}
+</body>{{- '' -}}
+</html>{{- '' -}}
